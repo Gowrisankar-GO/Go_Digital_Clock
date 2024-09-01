@@ -8,70 +8,70 @@ import (
 
 var (
 	zero = []string{"███",
-		"█ █",
-		"█ █",
-		"█ █",
-		"███"}
+		            "█ █",
+		            "█ █",
+		            "█ █",
+		            "███"}
 
 	one = []string{"██ ",
-		" █ ",
-		" █ ",
-		" █ ",
-		"███"}
+		           " █ ",
+		           " █ ",
+		           " █ ",
+		           "███"}
 
 	two = []string{"███",
-		"  █",
-		"███",
-		"█  ",
-		"███"}
+		           "  █",
+		           "███",
+		           "█  ",
+		           "███"}
 
 	three = []string{"███",
-		"  █",
-		"███",
-		"  █",
-		"███"}
+		             "  █",
+		             "███",
+		             "  █",
+		             "███"}
 
 	four = []string{"█ █",
-		"█ █",
-		"███",
-		"  █",
-		"  █"}
+		            "█ █",
+		            "███",
+		            "  █",
+		            "  █"}
 
 	five = []string{"███",
-		"█  ",
-		"███",
-		"  █",
-		"███"}
+		            "█  ",
+		            "███",
+		            "  █",
+		            "███"}
 
 	six = []string{"███",
-		"█  ",
-		"███",
-		"█ █",
-		"███"}
+		           "█  ",
+		           "███",
+		           "█ █",
+		           "███"}
 
 	seven = []string{"███",
-		"  █",
-		"  █",
-		"  █",
-		"  █"}
+		             "  █",
+		             "  █",
+		             "  █",
+		             "  █"}
 
 	eight = []string{"███",
-		"█ █",
-		"███",
-		"█ █",
-		"███"}
+		             "█ █",
+		             "███",
+		             "█ █",
+		             "███"}
 
 	nine = []string{"███",
-		"█ █",
-		"███",
-		"  █",
-		"███"}
+		            "█ █",
+		            "███",
+		            "  █",
+		            "███"}
 
 	separator = []string{"   ",
-		" ░ ",
-		"   ",
-		" ░ ",
-		"   "}
+		                 " ░ ",
+		                 "   ",
+		                 " ░ ",
+		                 "   "}
 
 	digits = [][]string{zero, one, two, three, four, five, six, seven, eight, nine}
 )
@@ -104,8 +104,6 @@ func main() {
 			second = currentSecond
 		}
 
-		// fmt.Printf("%s:%s:%s\r",hour,minute,second)
-		// fmt.Printf("%s%s:%s%s:%s%s\r",string(hour[0]),string(hour[1]),string(minute[0]),string(minute[1]),string(second[0]),string(second[1]))
 		var (
 			timeArr [][]string
 			h0, _   = strconv.Atoi(string(hour[0]))
@@ -115,7 +113,6 @@ func main() {
 			s0, _   = strconv.Atoi(string(second[0]))
 			s1, _   = strconv.Atoi(string(second[1]))
 		)
-		// fmt.Printf("%d%d:%d%d:%d%d\r", h0, h1, m0, m1, s0, s1)
 		timeArr = append(timeArr, digits[h0], digits[h1], separator, digits[m0], digits[m1], separator, digits[s0], digits[s1])
 
 		i, rows := 0, 5
