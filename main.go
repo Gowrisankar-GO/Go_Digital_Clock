@@ -7,67 +7,67 @@ import (
 )
 
 var (
-	zero = []string{    "███",
+	zero = []string{"███",
 		            "█ █",
 		            "█ █",
 		            "█ █",
 		            "███"}
 
-	one = []string{    "██ ",
+	one = []string{"██ ",
 		           " █ ",
 		           " █ ",
 		           " █ ",
 		           "███"}
 
-	two = []string{    "███",
+	two = []string{"███",
 		           "  █",
 		           "███",
 		           "█  ",
 		           "███"}
 
-	three = []string{    "███",
+	three = []string{"███",
 		             "  █",
 		             "███",
 		             "  █",
 		             "███"}
 
-	four = []string{    "█ █",
+	four = []string{"█ █",
 		            "█ █",
 		            "███",
 		            "  █",
 		            "  █"}
 
-	five = []string{    "███",
+	five = []string{"███",
 		            "█  ",
 		            "███",
 		            "  █",
 		            "███"}
 
-	six = []string{    "███",
+	six = []string{"███",
 		           "█  ",
 		           "███",
 		           "█ █",
 		           "███"}
 
-	seven = []string{    "███",
+	seven = []string{"███",
 		             "  █",
 		             "  █",
 		             "  █",
 		             "  █"}
 
-	eight = []string{    "███",
+	eight = []string{"███",
 		             "█ █",
 		             "███",
 		             "█ █",
 		             "███"}
 
-	nine = []string{    "███",
+	nine = []string{"███",
 		            "█ █",
 		            "███",
 		            "  █",
 		            "███"}
 
-	separator = []string{    "   ",
+	separator = []string{"   ",
 		                 " ░ ",
 		                 "   ",
 		                 " ░ ",
@@ -78,7 +78,7 @@ var (
 
 func main() {
 	for {
-		fmt.Println("\r")
+		fmt.Print("\033[3;0H")  //move the cursor to the (3,0) position
 		var (
 			currentHour          = strconv.Itoa(time.Now().Hour())
 			currentMinute        = strconv.Itoa(time.Now().Minute())
@@ -118,20 +118,24 @@ func main() {
 		i, rows := 0, 5
 		for i < rows {
 		loop2:
-			for _, digit := range timeArr {
+			for outerIndex, digit := range timeArr {
 				for index, part := range digit {
 					if index == i {
-						fmt.Printf("%5s ", part)
+						switch{
+						case i==4 && outerIndex==len(timeArr)-1 && index==len(digit)-1:
+							fmt.Printf("%5s", part)
+							fmt.Print("\033[?25l")         // Hide the cursor
+						default:
+							fmt.Printf("%5s ", part)
+						}
 						continue loop2
 					}
 				}
 			}
-			if i != 4 {
 				fmt.Println()
-			}
 			i++
 		}
 		time.Sleep(1 * time.Second)
-		fmt.Println("\033[H")
+		fmt.Print("\033[H\033[2J")     // Clear the Entire Screen and Move Cursor to the Top-Left(0,0) position
 	}
 }
