@@ -7,13 +7,13 @@ import (
 )
 
 var (
-	zero = []string{"███",
+	zero = []string{    "███",
 		            "█ █",
 		            "█ █",
 		            "█ █",
 		            "███"}
 
-	one = []string{"██ ",
+	one = []string{    "██ ",
 		           " █ ",
 		           " █ ",
 		           " █ ",
@@ -25,43 +25,43 @@ var (
 		           "█  ",
 		           "███"}
 
-	three = []string{"███",
+	three = []string{    "███",
 		             "  █",
 		             "███",
 		             "  █",
 		             "███"}
 
-	four = []string{"█ █",
+	four = []string{    "█ █",
 		            "█ █",
 		            "███",
 		            "  █",
 		            "  █"}
 
-	five = []string{"███",
+	five = []string{    "███",
 		            "█  ",
 		            "███",
 		            "  █",
 		            "███"}
 
-	six = []string{"███",
+	six = []string{    "███",
 		           "█  ",
 		           "███",
 		           "█ █",
 		           "███"}
 
-	seven = []string{"███",
+	seven = []string{    "███",
 		             "  █",
 		             "  █",
 		             "  █",
 		             "  █"}
 
-	eight = []string{"███",
+	eight = []string{    "███",
 		             "█ █",
 		             "███",
 		             "█ █",
 		             "███"}
 
-	nine = []string{"███",
+	nine = []string{    "███",
 		            "█ █",
 		            "███",
 		            "  █",
