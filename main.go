@@ -79,11 +79,13 @@ var (
 func main() {
 	for {
 		fmt.Print("\033[3;0H")  //move the cursor to the (3,0) position
+		currentTime := time.Now()
 		var (
-			currentHour          = strconv.Itoa(time.Now().Hour())
-			currentMinute        = strconv.Itoa(time.Now().Minute())
-			currentSecond        = strconv.Itoa(time.Now().Second())
+			currentHour          = strconv.Itoa(currentTime.Hour())
+			currentMinute        = strconv.Itoa(currentTime.Minute())
+			currentSecond        = strconv.Itoa(currentTime.Second())
 			hour, minute, second string
+			sec = currentTime.Second()
 		)
 
 		if time.Now().Hour() < 10 {
@@ -125,6 +127,9 @@ func main() {
 						case i==4 && outerIndex==len(timeArr)-1 && index==len(digit)-1:
 							fmt.Printf("%5s", part)
 							fmt.Print("\033[?25l")         // Hide the cursor
+						case sec%2==0 && (outerIndex==2 || outerIndex==5) && (index==1 || index==3):
+							part = "   "
+							fmt.Printf("%5s ", part)
 						default:
 							fmt.Printf("%5s ", part)
 						}
@@ -132,7 +137,7 @@ func main() {
 					}
 				}
 			}
-				fmt.Println()
+			fmt.Println()
 			i++
 		}
 		time.Sleep(1 * time.Second)
